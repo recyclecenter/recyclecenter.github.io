@@ -1,0 +1,17 @@
+/* (A) GRID LAYOUT */
+.grid {
+    display: grid;
+    grid-gap: 10px;
+  }
+   
+  /* (B) OPTIONAL - CELLS */
+  .head, .cell { padding: 10px; }
+  .head {
+    font-weight: 700;
+    border: 1px solid #f18e8e;
+    background: #ffbfbf;
+  }
+  .cell {
+    border: 1px solid #c2ba3c;
+    background: #f8ffde;
+  }
