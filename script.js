@@ -19,8 +19,9 @@ function updateGrid() {
     XYLDInput = document.getElementById('XYLD').value;
     UPROInput = document.getElementById('UPRO').value;
 
-    var trailing_stop_loss_XYLD_var = VIXInput*POOP*2;
+    var trailing_stop_loss_XYLD_var = VIXInput*POOP;
     var stop_loss_XYLD_var = XYLDInput*(1-(trailing_stop_loss_XYLD_var/100));
+    var stop_enter_XYLD_var = XYLDInput*(1+(trailing_stop_loss_XYLD_var/100));
 
     var trailing_stop_loss_x3_var = VIXInput*POOP*3;
     var stop_loss_next_var = UPROInput*(1-(trailing_stop_loss_x3_var/100));
@@ -35,21 +36,21 @@ function updateGrid() {
     var BTC_implied_avg_daily_var = BVOLInput*POOP;
     var BTC_stop_loss_next_var = BTCInput*(1-(BTC_implied_avg_daily_var/100));
     var BTC_stop_enter_next_var = BTCInput*(1+(BTC_implied_avg_daily_var/100));
-    var BTC_stop_loss_if_enter_var = BTC_stop_enter_next_var*(1-(BTC_implied_avg_daily_var/100));
+    // var BTC_stop_loss_if_enter_var = BTC_stop_enter_next_var*(1-(BTC_implied_avg_daily_var/100));
     var ETH_implied_avg_daily_var = EVOLInput*POOP;
     var ETH_stop_loss_next_var = ETHInput*(1-(ETH_implied_avg_daily_var/100));
     var ETH_stop_enter_next_var = ETHInput*(1+(ETH_implied_avg_daily_var/100));
-    var ETH_stop_loss_if_enter_var = ETH_stop_enter_next_var*(1-(ETH_implied_avg_daily_var/100));
+    // var ETH_stop_loss_if_enter_var = ETH_stop_enter_next_var*(1-(ETH_implied_avg_daily_var/100));
 
     // (C1) DATA ARRAY
     var stock_data = [
-        ["XYLD stop loss", " ", " ", "UPRO stop loss", "UPRO stop enter", "Stop loss if enter"],
-        [stop_loss_XYLD_var.toFixed(4), " ", " ", stop_loss_next_var.toFixed(4), stop_enter_next_var.toFixed(4), stop_loss_if_enter_var.toFixed(4)]
+        ["%", "XYLD stop loss", "XYLD stop enter", "UPRO stop loss", "UPRO stop enter", "Stop loss if enter"],
+        [trailing_stop_loss_XYLD_var.toFixed(4), stop_loss_XYLD_var.toFixed(4), stop_enter_XYLD_var.toFixed(4), stop_loss_next_var.toFixed(4), stop_enter_next_var.toFixed(4), stop_loss_if_enter_var.toFixed(4)]
     ];
 
     var coin_data = [
-        ["BTC stop loss", "BTC stop enter", "BTC stop loss if enter", "ETH stop loss", "ETH stop enter", "ETH stop loss if enter"],
-        [BTC_stop_loss_next_var.toFixed(4), BTC_stop_enter_next_var.toFixed(4), BTC_stop_loss_if_enter_var.toFixed(4), ETH_stop_loss_next_var.toFixed(4), ETH_stop_enter_next_var.toFixed(4), ETH_stop_loss_if_enter_var.toFixed(4)]
+        ["BTC stop loss", "BTC stop enter", "%", "ETH stop loss", "ETH stop enter", "%"],
+        [BTC_stop_loss_next_var.toFixed(4), BTC_stop_enter_next_var.toFixed(4), BTC_implied_avg_daily_var.toFixed(4), ETH_stop_loss_next_var.toFixed(4), ETH_stop_enter_next_var.toFixed(4), ETH_implied_avg_daily_var.toFixed(4)]
     ]
 
     // var data = [
