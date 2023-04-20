@@ -19,11 +19,11 @@ function updateGrid() {
     XYLDInput = document.getElementById('XYLD').value;
     UPROInput = document.getElementById('UPRO').value;
 
-    var trailing_stop_loss_XYLD_var = VIXInput*POOP;
+    var trailing_stop_loss_XYLD_var = VIXInput*POOP*0.5;
     var stop_loss_XYLD_var = XYLDInput*(1-(trailing_stop_loss_XYLD_var/100));
     var stop_enter_XYLD_var = XYLDInput*(1+(trailing_stop_loss_XYLD_var/100));
 
-    var trailing_stop_loss_x3_var = VIXInput*POOP*3;
+    var trailing_stop_loss_x3_var = VIXInput*POOP*1.5;
     var stop_loss_next_var = UPROInput*(1-(trailing_stop_loss_x3_var/100));
     var stop_enter_next_var = UPROInput*(1+(trailing_stop_loss_x3_var/100));
     var stop_loss_if_enter_var = stop_enter_next_var*(1-(trailing_stop_loss_x3_var/100));
