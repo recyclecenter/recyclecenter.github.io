@@ -47,11 +47,11 @@ function updateGrid() {
     EVOLInput = document.getElementById('EVOL').value;
     ETHInput = document.getElementById('ETH').value;
 
-    var BTC_implied_avg_daily_var = BVOLInput*POOP;
+    var BTC_implied_avg_daily_var = BVOLInput*POOP*0.5;
     var BTC_stop_loss_next_var = BTCInput*(1-(BTC_implied_avg_daily_var/100));
     var BTC_stop_enter_next_var = BTCInput*(1+(BTC_implied_avg_daily_var/100));
     // var BTC_stop_loss_if_enter_var = BTC_stop_enter_next_var*(1-(BTC_implied_avg_daily_var/100));
-    var ETH_implied_avg_daily_var = EVOLInput*POOP;
+    var ETH_implied_avg_daily_var = EVOLInput*POOP*0.5;
     var ETH_stop_loss_next_var = ETHInput*(1-(ETH_implied_avg_daily_var/100));
     var ETH_stop_enter_next_var = ETHInput*(1+(ETH_implied_avg_daily_var/100));
     // var ETH_stop_loss_if_enter_var = ETH_stop_enter_next_var*(1-(ETH_implied_avg_daily_var/100));
