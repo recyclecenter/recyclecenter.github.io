@@ -1,29 +1,40 @@
+body {
+  background-color: #000000;
+  color: #C69749;
+}
+
+
+
 /* page style */
 
 :focus{outline: none;}
 
-input[type="text"]{color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+input[type="text"]{color: #C69749; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
 
 :focus{outline: none;}
 
 .input_form{
   font-size: 45px;
-  color: #333;
+  color: #C69749;
+  
   width: 100%;
 }
 
 input[type="text"]{
   border: 3px solid;
   font-size: 45px;
-  color: #333;
+  color: #C69749;
   width: 100%;
   box-sizing: border-box;
   letter-spacing: 1px;
+  background-color: #000000;
 }
 
 .btn1{
   border: 3px solid;
   font: 80px "Lato", Arial, sans-serif;
+  color: #C69749;
+  background-color: #000000;
 
 }
 
@@ -45,9 +56,9 @@ input[type="text"]{
   .head {
     font-weight: 700;
     border: 1px solid #f18e8e;
-    background: #ffbfbf;
+    background: #282A3A;
   }
   .cell {
     border: 1px solid #c2ba3c;
-    background: #f8ffde;
+    background: #282A3A;
   }

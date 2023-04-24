@@ -15,6 +15,20 @@ const POOP = Math.sqrt(1/365)*Math.sqrt(2/3.142);
 
 function updateGrid() {
 
+    NUM1Input = document.getElementById('num1').value;
+    NUM2Input = document.getElementById('num2').value;
+
+    var ANS_var = NUM1Input/NUM2Input;
+    
+    const ANS = document.getElementById('ANS');
+    ANS.innerText = ANS_var
+
+
+
+
+
+
+
     VIXInput = document.getElementById('VIX').value;
     XYLDInput = document.getElementById('XYLD').value;
     UPROInput = document.getElementById('UPRO').value;
