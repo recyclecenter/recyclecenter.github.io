@@ -1,6 +1,6 @@
 var VIXInput = 0;
 var UPROInput = 0;
-var XYLDInput = 0;
+var SPXSInput = 0;
 
 var BVOLInput = 0;
 var BTCInput = 0;
@@ -30,14 +30,16 @@ function updateGrid() {
 
 
     VIXInput = document.getElementById('VIX').value;
-    XYLDInput = document.getElementById('XYLD').value;
+    SPXSInput = document.getElementById('SPXS').value;
     UPROInput = document.getElementById('UPRO').value;
 
-    var trailing_stop_loss_XYLD_var = VIXInput*POOP*0.5;
-    var stop_loss_XYLD_var = XYLDInput*(1-(trailing_stop_loss_XYLD_var/100));
-    var stop_enter_XYLD_var = XYLDInput*(1+(trailing_stop_loss_XYLD_var/100));
 
-    var trailing_stop_loss_x3_var = VIXInput*POOP*1.5;
+    var VIX_percent_var = VIXInput*POOP
+    var trailing_stop_loss_SPXS_var = VIXInput*0.5*POOP*1.5;    // half VIX
+    var stop_loss_SPXS_var = SPXSInput*(1-(trailing_stop_loss_SPXS_var/100));
+    var stop_enter_SPXS_var = SPXSInput*(1+(trailing_stop_loss_SPXS_var/100));
+
+    var trailing_stop_loss_x3_var = VIXInput*0.5*POOP*1.5;  // half VIX
     var stop_loss_next_var = UPROInput*(1-(trailing_stop_loss_x3_var/100));
     var stop_enter_next_var = UPROInput*(1+(trailing_stop_loss_x3_var/100));
     var stop_loss_if_enter_var = stop_enter_next_var*(1-(trailing_stop_loss_x3_var/100));
@@ -58,8 +60,8 @@ function updateGrid() {
 
     // (C1) DATA ARRAY
     var stock_data = [
-        ["%", "XYLD stop loss", "XYLD stop enter", "UPRO stop loss", "UPRO stop enter", "Stop loss if enter"],
-        [trailing_stop_loss_XYLD_var.toFixed(4), stop_loss_XYLD_var.toFixed(4), stop_enter_XYLD_var.toFixed(4), stop_loss_next_var.toFixed(4), stop_enter_next_var.toFixed(4), stop_loss_if_enter_var.toFixed(4)]
+        ["% ind", "% act", "UPRO stop loss", "UPRO stop enter", "SPXS stop loss", "SPXS stop enter",],
+        [VIX_percent_var.toFixed(4), stop_loss_next_var.toFixed(4), stop_enter_next_var.toFixed(4), trailing_stop_loss_SPXS_var.toFixed(4), stop_loss_SPXS_var.toFixed(4), stop_enter_SPXS_var.toFixed(4)]
     ];
 
     var coin_data = [
